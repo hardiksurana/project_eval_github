@@ -1,3 +1,6 @@
 .vscode/
 data/
 code/constants.py
+output/
+repos/
+*.pyc

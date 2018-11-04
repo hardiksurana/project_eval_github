@@ -1,5 +1,11 @@
 Data Analytics Project Evaluation using Github Metrics as Key Performance Indicators (KPIs)
 
+# Instructions
+1. Clone the repository
+2. Add the csv file with all github project repo URLs in ```data/``` folder
+3. Run ```code/update_repos.py``` to clone/pull latest changes in each repository
+4. Run ```code/get_stats.py``` to print all metrics on terminal and store results in ```output/``` folder
+
 # Metrics
 ### Overall Indicators
 total number of:
