@@ -3,4 +3,5 @@ data/
 code/constants.py
 output/
 repos/
+code/__pycache__/
 *.pyc
