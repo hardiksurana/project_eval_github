@@ -1,6 +1,10 @@
-import subprocess
-import re
+# import dependencies
+from constants import *
 from datetime import datetime
+import pandas as pd
+import re
+import requests
+import subprocess
 
 # get total number of commits 
 def get_total_commits():
@@ -10,8 +14,22 @@ def get_total_commits():
     return total_commit_count
 
 # get total number of issues
-def get_total_issues():
-    return 0
+def get_total_issues(owner, repo):
+    headers = {'Authorization': 'token ' + AUTH_TOKEN}
+    url = 'https://api.github.com/repos/' + owner + '/' + repo + '/issues'
+    result = requests.get(url=url, headers=headers).json()
+    return len(result)
+
+# get all issues assigned to a user
+def get_issues_by_user(owner, repo, user):
+    headers = {'Authorization': 'token ' + AUTH_TOKEN}
+    url = 'https://api.github.com/repos/' + owner + '/' + repo + '/issues'
+    params = {
+        'state' : 'all',
+        'assignee' : user,
+        }
+    result = requests.get(url=url, headers=headers, params=params).json()
+    return len(result)
 
 # get list of all contributing authors
 def get_contributing_authors():
